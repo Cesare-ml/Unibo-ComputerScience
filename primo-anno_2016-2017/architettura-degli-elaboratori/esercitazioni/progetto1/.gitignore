@@ -1,0 +1,6 @@
+*.cmp
+*.out
+*.tst
+
+### macOS ###
+*.DS_Store
