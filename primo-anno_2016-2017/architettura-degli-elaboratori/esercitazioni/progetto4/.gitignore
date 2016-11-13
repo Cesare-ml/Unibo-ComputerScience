@@ -1,0 +1,7 @@
+*.cmp
+*.out
+*.tst
+*.hack
+
+### macOS ###
+*.DS_Store
