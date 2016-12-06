@@ -1,0 +1,7 @@
+*.asm
+*.o
+*.hack
+assembler
+
+### macOS ###
+*.DS_Store
