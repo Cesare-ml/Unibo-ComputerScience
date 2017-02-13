@@ -1,0 +1,9 @@
+*.asm
+*.o
+*.hack
+*.vm
+*.tst
+*.cmp
+
+### macOS ###
+*.DS_Store
