@@ -7,7 +7,5 @@
 *.out
 *.exe
 
-VMtranslator/VMtranslator
-
 ### macOS ###
 *.DS_Store
