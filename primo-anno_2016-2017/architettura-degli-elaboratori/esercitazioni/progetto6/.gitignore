@@ -5,6 +5,7 @@
 *.tst
 *.cmp
 *.out
+*.exe
 
 VMtranslator/VMtranslator
 

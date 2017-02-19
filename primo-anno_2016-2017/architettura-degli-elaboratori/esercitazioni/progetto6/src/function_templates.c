@@ -41,7 +41,7 @@ char *vm_template_function_call(char *name, int nVars) {
     M=M+1 \n\
 \
     @LCL  \n\
-    D=A   \n\
+    D=M   \n\
     @SP   \n\
     A=M   \n\
     M=D   \n\
@@ -49,7 +49,23 @@ char *vm_template_function_call(char *name, int nVars) {
     M=M+1 \n\
 \
     @ARG  \n\
-    D=A   \n\
+    D=M   \n\
+    @SP   \n\
+    A=M   \n\
+    M=D   \n\
+    @SP   \n\
+    M=M+1 \n\
+\
+    @THIS \n\
+    D=M   \n\
+    @SP   \n\
+    A=M   \n\
+    M=D   \n\
+    @SP   \n\
+    M=M+1 \n\
+\
+    @THAT \n\
+    D=M   \n\
     @SP   \n\
     A=M   \n\
     M=D   \n\
@@ -60,7 +76,7 @@ char *vm_template_function_call(char *name, int nVars) {
     D=M   \n\
     @%d   \n\
     D=D-A \n\
-    @3    \n\
+    @5    \n\
     D=D-A \n\
     @ARG  \n\
     M=D   \n\
@@ -71,7 +87,7 @@ char *vm_template_function_call(char *name, int nVars) {
     M=D   \n\
 \
     @%s   \n\
-    0;JMP  \n\
+    0;JMP \n\
     (FUNC_RET_ADDR_%d) \n\
   ";
   char *s = (char *)malloc(VM_TEMPLATE_BUFF_CHAR_SIZE * sizeof(char));
@@ -88,32 +104,62 @@ char *vm_template_function_call(char *name, int nVars) {
 
 char *vm_template_function_return() {
   char *template = "\
-    @LCL  \n\
-    D=A   \n\
-    @5    \n\
-    M=D   \n\
-\
-    @5    \n\
-    D=M   \n\
-    @1    \n\
-    A=D-A \n\
-    D=M   \n\
-    @ARG  \n\
-    M=D   \n\
-\
-    @5    \n\
-    D=M   \n\
-    @2    \n\
-    A=D-A \n\
-    D=M   \n\
-    @LCL  \n\
-    M=D   \n\
-\
-    @5    \n\
-    D=M   \n\
-    @3    \n\
-    A=D-A \n\
-    A=M   \n\
+    @SP    \n\
+    A=M-1  \n\
+    D=M    \n\
+    @5     \n\
+    M=D    \n\
+\n\
+    @ARG   \n\
+    D=M    \n\
+    @SP    \n\
+    M=D    \n\
+\n\
+    @5     \n\
+    D=M    \n\
+    @SP    \n\
+    A=M    \n\
+    M=D    \n\
+    @SP    \n\
+    M=M+1  \n\
+\n\
+    @LCL   \n\
+    D=M    \n\
+    @6     \n\
+    M=D    \n\
+\n\
+    @6     \n\
+    M=M-1  \n\
+    A=M    \n\
+    D=M    \n\
+    @THAT  \n\
+    M=D    \n\
+\n\
+    @6     \n\
+    M=M-1  \n\
+    A=M    \n\
+    D=M    \n\
+    @THIS  \n\
+    M=D    \n\
+\n\
+    @6     \n\
+    M=M-1  \n\
+    A=M    \n\
+    D=M    \n\
+    @ARG   \n\
+    M=D    \n\
+\n\
+    @6     \n\
+    M=M-1  \n\
+    A=M    \n\
+    D=M    \n\
+    @LCL   \n\
+    M=D    \n\
+\n\
+    @6     \n\
+    M=M-1  \n\
+    A=M    \n\
+    A=M    \n\
     0;JMP  \n\
   ";
 

@@ -71,8 +71,8 @@ char *vm_template_arithmetic_eq_operator() {
     @EQ_JUMP_END%d \n\
     0;JMP   \n\
     (EQ_JUMP_TRUE%d) \n\
-    @1     \n\
-    D=A    \n\
+    @0     \n\
+    D=!A    \n\
     (EQ_JUMP_END%d) \n\
     @SP    \n\
     A=M    \n\
@@ -121,8 +121,8 @@ char *vm_template_arithmetic_lt_operator() {
     @LT_JUMP_END%d \n\
     0;JMP   \n\
     (LT_JUMP_TRUE%d) \n\
-    @1     \n\
-    D=A    \n\
+    @0     \n\
+    D=!A    \n\
     (LT_JUMP_END%d) \n\
     @SP    \n\
     M=M-1  \n\
@@ -175,8 +175,8 @@ char *vm_template_arithmetic_gt_operator() {
     @GT_JUMP_END%d \n\
     0;JMP   \n\
     (GT_JUMP_TRUE%d) \n\
-    @1     \n\
-    D=A    \n\
+    @0     \n\
+    D=!A    \n\
     (GT_JUMP_END%d) \n\
     @SP    \n\
     M=M-1  \n\
