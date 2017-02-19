@@ -26,13 +26,19 @@ char *vm_template_function_declaration(char *name, int nVars) {
       M=M+1 \n\
     ");
   }
-  printf("%s\n",s);
+  //printf("%s\n",s);
   return s;
 }
 
 char *vm_template_function_call(char *name, int nVars) {
   char *template = "\
     @FUNC_RET_ADDR_%d \n\
+    D=A   \n\
+    @SP   \n\
+    A=M   \n\
+    M=D   \n\
+    @SP   \n\
+    M=M+1 \n\
 \
     @LCL  \n\
     D=A   \n\
@@ -51,7 +57,7 @@ char *vm_template_function_call(char *name, int nVars) {
     M=M+1 \n\
 \
     @SP   \n\
-    D=A   \n\
+    D=M   \n\
     @%d   \n\
     D=D-A \n\
     @3    \n\
@@ -60,12 +66,12 @@ char *vm_template_function_call(char *name, int nVars) {
     M=D   \n\
 \
     @SP   \n\
-    D=A   \n\
+    D=M   \n\
     @LCL  \n\
     M=D   \n\
 \
     @%s   \n\
-    ;JMP  \n\
+    0;JMP  \n\
     (FUNC_RET_ADDR_%d) \n\
   ";
   char *s = (char *)malloc(VM_TEMPLATE_BUFF_CHAR_SIZE * sizeof(char));
@@ -108,10 +114,10 @@ char *vm_template_function_return() {
     @3    \n\
     A=D-A \n\
     A=M   \n\
-    ;JMP  \n\
+    0;JMP  \n\
   ";
-  
+
   char *s = (char *)malloc(VM_TEMPLATE_BUFF_CHAR_SIZE * sizeof(char));
-  sprintf(s,template);
+  sprintf(s,"%s",template);
   return s;
 }

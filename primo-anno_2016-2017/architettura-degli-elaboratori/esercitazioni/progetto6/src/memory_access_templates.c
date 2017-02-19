@@ -24,11 +24,11 @@ char *vm_template_memory_access_push_lcl_arg(char *x,char* memBlock) {
 }
 
 char *vm_template_memory_access_push_local(char *x) {
-  vm_template_memory_access_push_lcl_arg(x,"LCL");
+  return vm_template_memory_access_push_lcl_arg(x,"LCL");
 }
 
 char *vm_template_memory_access_push_argument(char *x) {
-  vm_template_memory_access_push_lcl_arg(x,"ARG");
+  return vm_template_memory_access_push_lcl_arg(x,"ARG");
 }
 
 char *vm_template_memory_access_push_static(char *x) {
@@ -84,11 +84,11 @@ char *vm_template_memory_access_pop_lcl_arg(char *x,char* memBlock) {
 }
 
 char *vm_template_memory_access_pop_local(char *x) {
-  vm_template_memory_access_pop_lcl_arg(x,"LCL");
+  return vm_template_memory_access_pop_lcl_arg(x,"LCL");
 }
 
 char *vm_template_memory_access_pop_argument(char *x) {
-  vm_template_memory_access_pop_lcl_arg(x,"ARG");
+  return vm_template_memory_access_pop_lcl_arg(x,"ARG");
 }
 
 char *vm_template_memory_access_pop_static(char *x) {

@@ -4,6 +4,9 @@
 *.vm
 *.tst
 *.cmp
+*.out
+
+VMtranslator/VMtranslator
 
 ### macOS ###
 *.DS_Store

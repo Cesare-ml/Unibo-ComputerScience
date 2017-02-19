@@ -17,7 +17,7 @@ char *vm_template_flow_label(char *label) {
 char *vm_template_flow_goto(char *label) {
   char *template = "\
     @%s  \n\
-    ;JMP \n\
+    0;JMP \n\
   ";
   char *s = (char *)malloc(VM_TEMPLATE_BUFF_CHAR_SIZE * sizeof(char));
   sprintf(s,template,label);

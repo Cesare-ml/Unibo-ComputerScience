@@ -12,6 +12,6 @@ char *vm_template_bootstrap() {
     M=D  \n\
   ";
   char *s = (char *)malloc(VM_TEMPLATE_BUFF_CHAR_SIZE * sizeof(char));
-  sprintf(s,template);
+  sprintf(s,"%s",template);
   return s;
 }

@@ -53,7 +53,7 @@ void vm_translate_file(FILE *fin, FILE *fout) {
 
   bootstrap = vm_template_bootstrap();
   vm_clear_translated_line(bootstrap);
-  fprintf(fout,bootstrap);
+  fprintf(fout,"%s",bootstrap);
   free(bootstrap);
 
   while(fgets(line, VM_READ_FILE_BUFF, fin) != NULL) {
@@ -63,7 +63,7 @@ void vm_translate_file(FILE *fin, FILE *fout) {
       printf("Syntax Error on line: %d\n",i);
     }
     else if(status == VM_PARSE_OK){
-      printf("%d: ok\n",i);
+      //printf("%d: ok\n",i);
     }
     i++;
   }
@@ -103,7 +103,7 @@ int vm_translate_line(char *line,FILE *fout) {
   trim(line," \n\r\t\0");
 
   //controllo se la linea é vuota o se é un commento
-  if(line[0]==0 || line[0]=='/' && line[1]=='/')
+  if(line[0]==0 || (line[0]=='/' && line[1]=='/'))
     return VM_PARSE_OK;
 
   //controllo se é un calcolo aritmetico

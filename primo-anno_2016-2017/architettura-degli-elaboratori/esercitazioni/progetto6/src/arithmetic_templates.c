@@ -64,16 +64,16 @@ char *vm_template_arithmetic_eq_operator() {
     M=M-1  \n\
     A=M    \n\
     D=D-M  \n\
-    @EQ_JUMP_TRUE_%c \n\
+    @EQ_JUMP_TRUE%d \n\
     D;JEQ  \n\
     @0     \n\
     D=A    \n\
-    @EQ_JUMP_END_%c \n\
-    ;JMP   \n\
-    (EQ_JUMP_TRUE_%c) \n\
+    @EQ_JUMP_END%d \n\
+    0;JMP   \n\
+    (EQ_JUMP_TRUE%d) \n\
     @1     \n\
     D=A    \n\
-    (EQ_JUMP_END_%c) \n\
+    (EQ_JUMP_END%d) \n\
     @SP    \n\
     A=M    \n\
     M=D    \n\
@@ -98,15 +98,15 @@ char *vm_template_arithmetic_lt_operator() {
     @SP    \n\
     A=M-1  \n\
     D=M    \n\
-    @LT_JUMP_SUB_CHECK_%c \n\
+    @LT_JUMP_SUB_CHECK%d \n\
     D;JLE  \n\
     @SP    \n\
     A=M-1  \n\
     A=A-1  \n\
     D=M    \n\
-    @LT_JUMP_TRUE_%c \n\
-    D;JLT  \n\
-    (LT_JUMP_SUB_CHECK_%c) \n\
+    @LT_JUMP_TRUE%d \n\
+    D;JLE  \n\
+    (LT_JUMP_SUB_CHECK%d) \n\
     @SP    \n\
     A=M-1  \n\
     D=M    \n\
@@ -114,16 +114,16 @@ char *vm_template_arithmetic_lt_operator() {
     A=M-1  \n\
     A=A-1  \n\
     D=M-D  \n\
-    @LT_JUMP_TRUE_%c \n\
-    A;JLT  \n\
+    @LT_JUMP_TRUE%d \n\
+    D;JLT  \n\
     @0     \n\
     D=A    \n\
-    @LT_JUMP_END_%c \n\
-    ;JMP   \n\
-    (LT_JUMP_TRUE_%c) \n\
+    @LT_JUMP_END%d \n\
+    0;JMP   \n\
+    (LT_JUMP_TRUE%d) \n\
     @1     \n\
     D=A    \n\
-    (LT_JUMP_END_%c) \n\
+    (LT_JUMP_END%d) \n\
     @SP    \n\
     M=M-1  \n\
     M=M-1  \n\
@@ -152,15 +152,15 @@ char *vm_template_arithmetic_gt_operator() {
     @SP    \n\
     A=M-1  \n\
     D=M    \n\
-    @GT_JUMP_SUB_CHECK_%c \n\
+    @GT_JUMP_SUB_CHECK%d \n\
     D;JGE  \n\
     @SP    \n\
     A=M-1  \n\
     A=A-1  \n\
     D=M    \n\
-    @GT_JUMP_TRUE_%c \n\
-    D;JGT  \n\
-    (GT_JUMP_SUB_CHECK_%c) \n\
+    @GT_JUMP_TRUE%d \n\
+    D;JGE  \n\
+    (GT_JUMP_SUB_CHECK%d) \n\
     @SP    \n\
     A=M-1  \n\
     D=M    \n\
@@ -168,16 +168,16 @@ char *vm_template_arithmetic_gt_operator() {
     A=M-1  \n\
     A=A-1  \n\
     D=M-D  \n\
-    @GT_JUMP_TRUE_%c \n\
-    A;JGT  \n\
+    @GT_JUMP_TRUE%d \n\
+    D;JGT  \n\
     @0     \n\
     D=A    \n\
-    @GT_JUMP_END_%c \n\
-    ;JMP   \n\
-    (GT_JUMP_TRUE_%c) \n\
+    @GT_JUMP_END%d \n\
+    0;JMP   \n\
+    (GT_JUMP_TRUE%d) \n\
     @1     \n\
     D=A    \n\
-    (GT_JUMP_END_%c) \n\
+    (GT_JUMP_END%d) \n\
     @SP    \n\
     M=M-1  \n\
     M=M-1  \n\
